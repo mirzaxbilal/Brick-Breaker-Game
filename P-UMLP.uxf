@@ -1,0 +1,1541 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>18</x>
+      <y>252</y>
+      <w>198</w>
+      <h>624</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::Gameplay
+--
+-play = false: boolean
+-score: int
+-timer: Timer
+-delay: int
+~counterUB = 0: int
+-level1: boolean
+-level2: boolean
+~brc: Brick
+~brick_array = new ArrayList(): ArrayList&lt;Brick&gt;
+-paddle: Paddle
+-random = 0: int
+-ball: Ball
+~powerupFactory: PowerupFactory
+~powerup: Powerup
+-counter = 0: double
+-FireBallCounter = 0: double
+-BulletCounter = 0: double
+-PowerupList: ArrayList&lt;Powerup&gt;
+~Moving_array = new ArrayList(): ArrayList&lt;Brick&gt;
+-dballs: ArrayList&lt;Dball&gt;
+-BList: ArrayList&lt;Bullet&gt;
+-life = 3: int
+-brickFactory = new BrickFactory(): BrickFactory
+-dead: boolean
++gameplay: Gameplay
+~BGImage: Image
+~BGWidth: int
+~BGHeight: int
+~path: String
+#img: ImageIcon
+-BrickX: int
+-BrickY: int
+~SBballcheck: boolean
+~limit: int
+-winner: boolean
++state = STATE.MENU: STATE
+-menu = new Menu(): Menu
+--
++Gameplay(): ctor
++mouseClicked(MouseEvent e): void
++mousePressed(MouseEvent e): void
++mouseReleased(MouseEvent e): void
++mouseEntered(MouseEvent e): void
++mouseExited(MouseEvent e): void
++gameplay(): void
++paint(Graphics g): void
++actionPerformed(ActionEvent e): void
++keyTyped(KeyEvent e): void
++keyReleased(KeyEvent e): void
++keyPressed(KeyEvent e): void
++cleanPowerupList(): void
++paint_list11(Graphics2D a, ArrayList e): void
++death(): void
++winner(): void
++level1(): void
++movingBricks(): void
++movingaarray(): void
++checking(): void
++check_collision(ArrayList e): void
++Dcheck_collision(ArrayList e): void
++EndLevel1(): void
++BackGround(): void
++Level2(): void
++Bullet_collision(ArrayList e): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>0</y>
+      <w>144</w>
+      <h>414</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::Paddle
+--
+-paddleX: int
+-paddleY: int
+-paddleWidth: int
+-paddleHeight: int
+#image: Image
+-instance = new Paddle(): Paddle
++path: String
+-img: ImageIcon
+-dx: int
+-Type: String
+-BulletPowerUp: boolean
+-bullet: Bullet
+-BulletList: ArrayList&lt;Bullet&gt;
+--
+-Paddle(): ctor
++setBulletPowerup(boolean b): void
++getBulletPowerup(): boolean
++setType(String type): void
++getInstance(): Paddle
++reset(): void
++IncreaseSize(): void
++DecreaseSize(): void
++getType(): String
++getDx(): int
++SpeedIncrease(): void
++SpeedDecrease(): void
++getBounds(): Rectangle
++getHeight(): int
++getWidth(): int
++getX(): int
++setX(int x): void
++getY(): int
++getImage(): Image
++getList(): ArrayList&lt;Bullet&gt;
++keyPressed(KeyEvent e): void
++moveRight(): void
++moveLeft(): void
++getBulletList(): ArrayList&lt;Bullet&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>948</x>
+      <y>252</y>
+      <w>120</w>
+      <h>258</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::Dball
+--
+#powerup: boolean
+#image: Image
+#ballposX: int
+#ballposY: int
+#ballXdir = -1: int
+#ballYdir = -2: int
+#img: ImageIcon
+#FireBall: boolean
+--
++Dball(int x, int y): ctor
++FireBall(): void
++NormalBall(): void
++changedirectiony(): void
++changedirectionx(): void
++changeposition(): void
++changepositionodd(): void
++setBallX(int x): void
++setBallY(int y): void
++setBallXdir(int xdir): void
++setBallYdir(int ballYdir): void
++getBallposX(): int
++getBallXdir(): int
++getBallposY(): int
++getBallYdir(): int
++getImageforpowerup(): Image
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1074</x>
+      <y>252</y>
+      <w>126</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::Ball
+--
+#powerup: boolean
+#image: Image
+#ballposX: int
+#ballposY: int
+#ballXdir = -1: int
+#ballYdir = -2: int
+#img: ImageIcon
+#FireBall: boolean
+--
++Ball(int x, int y): ctor
++FireBall(): void
++NormalBall(): void
++changedirectiony(): void
++changedirectionx(): void
++changeposition(): void
++changepositionodd(): void
++setBallX(int x): void
++setBallY(int y): void
++setBallXdir(int xdir): void
++getBallposX(): int
++getBallXdir(): int
++getBallposY(): int
++getBallYdir(): int
++getImageforpowerup(): Image
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1014</x>
+      <y>672</y>
+      <w>156</w>
+      <h>258</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::BrickL3
+--
+#image = new Image[2]: Image[]
+#x: int
+#y: int
+#w: int
+#h: int
+#alive1: boolean
+#alive: boolean
+#alive2: boolean
+#Isleft: boolean
+#dx = 1: int
+--
++BrickL3(String[] path, int x, int y): ctor
++getBounds(): Rectangle
++moveTo(int x, int y): void
++getX(): int
++getY(): int
++getImage(): Image[]
++isAlive(): boolean
++setAlive(boolean alive): void
++move(): void
++setAlive1(boolean alive1): void
++isAlive1(): boolean
++paintCompnent(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1182</x>
+      <y>684</y>
+      <w>168</w>
+      <h>246</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::MovingBricks
+--
+#image: Image
+#x: int
+#y: int
+#w: int
+#h: int
+-dx = 2: int
+#alive: boolean
+-Isleft: boolean
+#count = 1: long
+--
++MovingBricks(String path, int x, int y): ctor
++getBounds(): Rectangle
++moveTo(int x, int y): void
++getX(): int
++getY(): int
++getWidth(): int
++getHeight(): int
++getImage(): Image
++isAlive(): boolean
++setAlive(boolean alive): void
++paintCompnent(Graphics2D g): void
++move(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>690</y>
+      <w>156</w>
+      <h>228</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::BrickL2
+--
+#image = new Image[2]: Image[]
+#x: int
+#y: int
+#w: int
+#h: int
+#alive1: boolean
+#alive: boolean
+#Isleft: boolean
+#dx = 1: int
+--
++BrickL2(String[] path, int x, int y): ctor
++getBounds(): Rectangle
++moveTo(int x, int y): void
++getX(): int
++getY(): int
++getImage(): Image[]
++isAlive(): boolean
++setAlive(boolean alive): void
++move(): void
++paintCompnent(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>222</x>
+      <y>684</y>
+      <w>252</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::LevelGenerator
+--
++brc: Brick
++brick_array = new ArrayList(): ArrayList&lt;Brick&gt;
++BF = new BrickFactory(): BrickFactory
++Moving_array = new ArrayList(): ArrayList&lt;Brick&gt;
+~ball: Ball
++powerup: Powerup
+~brickX: int
+~brickY: int
+~powerupFactory = new PowerupFactory(): PowerupFactory
++counter = 0: double
++score = 0: int
++random = 0: int
+~PowerupList = new ArrayList&lt;Powerup&gt;(): ArrayList&lt;Powerup&gt;
+--
++LevelGenerator(Ball ball, Powerup power): ctor
++level1(): void
++movingaarray(): void
++checking(): void
++check_collision(ArrayList e): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>492</x>
+      <y>696</y>
+      <w>144</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::Bricks
+--
+#image: Image
+#x: int
+#y: int
+#w: int
+#h: int
+#dx = 1: int
+#Isleft: boolean
+#alive: boolean
+#count = 1: long
+--
++Bricks(String path, int x, int y): ctor
++getBounds(): Rectangle
++moveTo(int x, int y): void
++getX(): int
++getY(): int
++getImage(): Image
++move(): void
++paintCompnent(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>1128</y>
+      <w>114</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>/BrickBreaker::Powerup/
+--
+#image: Image
+#x: int
+#y: int
+#w: int
+#h: int
+#dx, dy: int
+--
++Powerup(String path): ctor
++move(): void
++getType(): String
++getBounds(): Rectangle
++moveTo(int x, int y): void
++SetXY(int x, int y): void
++getX(): int
++getY(): int
++getWidth(): int
++getHeight(): int
++paint(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>696</y>
+      <w>192</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::UBricks
+--
+#image_list = new ArrayList(): ArrayList&lt;Image&gt;
+#image: Image
+#x: int
+#y: int
+#w: int
+#h: int
+#Isleft: boolean
+#dx = 1: int
+#path: String[]
+--
++UBricks(String[] path, int x, int y): ctor
++getBounds(): Rectangle
++moveTo(int x, int y): void
++getX(): int
++getY(): int
++getImage(): Image
++move(): void
++paintCompnent(Graphics2D g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>240</y>
+      <w>114</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::Bullet
+--
+#image: Image
+#x: int
+#y: int
+#w: int
+#h: int
+#dx, dy: int
+--
++Bullet(Paddle paddle): ctor
++move(): void
++getBounds(): Rectangle
++getX(): int
++getY(): int
++getWidth(): int
++getHeight(): int
++paint(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1368</x>
+      <y>366</y>
+      <w>234</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::Menu
+--
++Newgame = new Rectangle(270, 150, 100, 50): Rectangle
++Loadgame = new Rectangle(270, 250, 100, 50): Rectangle
++Quit = new Rectangle(270, 350, 100, 50): Rectangle
+~img = new ImageIcon("src/image-asset.jpeg"): ImageIcon
+~BGImage = img.getImage(): Image
+--
++draw(Graphics g): void
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>24</x>
+      <y>900</y>
+      <w>156</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::BrickFactory
+--
++brickpath = "src/13-Breakout-Tiles.png": String
++brick2path = { "src/01-Breakout-Tiles.png", "src/02-Breakout-Tiles.png" }: String[]
++brick3path = { "src/17-Breakout-Tiles.png", "src/18-Breakout-Tiles.png" }: String[]
++Ubrickpath = { "src/21-Breakout-Tiles.png", "src/22-Breakout-Tiles.png", "src/23-Breakout-Tiles.png", "src/24-Breakout-Tiles.png", "src/25-Breakout-Tiles.png", "src/26-Breakout-Tiles.png", "src/27-Breakout-Tiles.png", "src/28-Breakout-Tiles.png", "src/29-Breakout-Tiles.png", "src/30-Breakout-Tiles.png" }: String[]
++movingBrickPath = "src/19-Breakout-Tiles.png": String
+--
++getBrick(int i, int x, int y): Brick
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1194</x>
+      <y>1170</y>
+      <w>156</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::MouseInput
+--
+~FA = new FileActions(): FileActions
+--
++mouseClicked(MouseEvent e): void
++mousePressed(MouseEvent e): void
++mouseReleased(MouseEvent e): void
++mouseEntered(MouseEvent e): void
++mouseExited(MouseEvent e): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>534</x>
+      <y>1212</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::BulletPowerUp
+--
+-type = "Bullet Powerup": String
+--
++BulletPowerUp(): ctor
++move(): void
++getType(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>924</x>
+      <y>1074</y>
+      <w>210</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::FileActions
+--
+-objects = new ArrayList&lt;Object&gt;(): ArrayList&lt;Object&gt;
+--
++addObject(Object o): void
++saveGame(): void
++loadGame(): Gameplay
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>162</x>
+      <y>1266</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::FireBallPowerup
+--
+-type = "Fire Ball": String
+--
++FireBallPowerup(): ctor
++move(): void
++getType(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>174</x>
+      <y>1170</y>
+      <w>120</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::LifePowerup
+--
+-type = "Life Powerup": String
+--
++LifePowerup(): ctor
++move(): void
++getType(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>24</x>
+      <y>1026</y>
+      <w>150</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::SizeDecreasePowerup
+--
+-type = "Size Decrease": String
+--
++SizeDecreasePowerup(): ctor
++move(): void
++getType(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>186</x>
+      <y>1056</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::SizeIncreasePowerup
+--
+-type = "Size Increase": String
+--
++SizeIncreasePowerup(): ctor
++move(): void
++getType(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>348</x>
+      <y>1242</y>
+      <w>156</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::SpeedDecreasePowerup
+--
+-type = "Speed Decrease": String
+--
++SpeedDecreasePowerup(): ctor
++move(): void
++getType(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>378</x>
+      <y>1152</y>
+      <w>150</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::SpeedIncreasePowerup
+--
+-type = "Speed Increase": String
+--
++SpeedIncreasePowerup(): ctor
++move(): void
++getType(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>528</x>
+      <y>1044</y>
+      <w>114</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::SplitPowerup
+--
+-type = "Split Ball": String
+--
++SplitPowerup(): ctor
++move(): void
++getType(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>354</x>
+      <y>912</y>
+      <w>150</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>/BrickBreaker::Brick/
+--
+--
++paintCompnent(Graphics2D g): void
++getBounds(): Rectangle
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>18</x>
+      <y>1350</y>
+      <w>102</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::Main
+--
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>354</x>
+      <y>1014</y>
+      <w>126</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>BrickBreaker::PowerupFactory
+--
+--
++GetPowerUp(int i): Powerup
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>1122</y>
+      <w>102</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;150.0;40.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>498</x>
+      <y>900</y>
+      <w>132</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;200.0;110.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1128</x>
+      <y>1104</y>
+      <w>180</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;280.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>660</y>
+      <w>1320</w>
+      <h>522</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;20.0;810.0;30.0;2180.0;10.0;2170.0;510.0;1810.0;850.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>162</x>
+      <y>1020</y>
+      <w>204</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;40.0;320.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>822</x>
+      <y>1038</y>
+      <w>438</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;710.0;10.0;710.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>84</x>
+      <y>594</y>
+      <w>1470</w>
+      <h>840</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>220.0;10.0;2410.0;10.0;2430.0;1220.0;310.0;1250.0;300.0;1380.0;10.0;1380.0;10.0;1330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>540</y>
+      <w>1362</w>
+      <h>564</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;60.0;2240.0;10.0;2250.0;920.0;1540.0;920.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>702</x>
+      <y>1020</y>
+      <w>126</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Enumeration&gt;&gt;
+State
+
+--
+MENU:STATE
+GAME:STATE
+
+--
+STATE()
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>498</x>
+      <y>912</y>
+      <w>210</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;220.0;110.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>498</x>
+      <y>900</y>
+      <w>354</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;240.0;150.0;570.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>492</x>
+      <y>924</y>
+      <w>546</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;270.0;130.0;890.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>924</y>
+      <w>732</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;310.0;150.0;1200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>1170</y>
+      <w>42</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>1110</y>
+      <w>396</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;170.0;80.0;640.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>1158</y>
+      <w>222</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;350.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>66</x>
+      <y>1092</y>
+      <w>84</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;20.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>1248</y>
+      <w>216</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;270.0;10.0;340.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>138</x>
+      <y>1278</y>
+      <w>36</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>1254</y>
+      <w>456</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;250.0;10.0;270.0;130.0;740.0;130.0;740.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>198</x>
+      <y>1038</y>
+      <w>168</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;30.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>474</x>
+      <y>1032</y>
+      <w>66</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>90.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>1038</y>
+      <w>72</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;190.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>282</x>
+      <y>1038</y>
+      <w>180</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;420.0;90.0;420.0;100.0;180.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>1038</y>
+      <w>96</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>140.0;290.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>1038</y>
+      <w>180</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;280.0;110.0;280.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>366</x>
+      <y>1038</y>
+      <w>120</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;340.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>642</y>
+      <w>294</w>
+      <h>282</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>450.0;450.0;460.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>234</x>
+      <y>870</y>
+      <w>132</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>200.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>870</y>
+      <w>66</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>10.0;110.0;90.0;110.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>882</y>
+      <w>330</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>530.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>912</y>
+      <w>510</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>830.0;10.0;530.0;90.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>900</y>
+      <w>708</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>1160.0;10.0;550.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>906</y>
+      <w>852</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>1400.0;10.0;670.0;110.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>924</y>
+      <w>1068</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>1760.0;10.0;690.0;100.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>246</x>
+      <y>870</y>
+      <w>138</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>200.0;240.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>408</y>
+      <w>318</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>510.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>150</y>
+      <w>1272</w>
+      <h>348</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>2080.0;360.0;2080.0;10.0;950.0;20.0;950.0;540.0;10.0;560.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>480</y>
+      <w>750</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>1230.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>510</y>
+      <w>876</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>1440.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>870</y>
+      <w>30</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>870</y>
+      <w>186</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>290.0;240.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>204</x>
+      <y>870</y>
+      <w>510</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>830.0;280.0;650.0;230.0;10.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>624</y>
+      <w>384</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>620.0;120.0;620.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>612</y>
+      <w>534</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>870.0;130.0;870.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>606</y>
+      <w>708</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>1160.0;150.0;1160.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>204</x>
+      <y>612</y>
+      <w>876</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>1440.0;100.0;1440.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>612</y>
+      <w>1080</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>1780.0;120.0;1780.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>348</x>
+      <y>240</y>
+      <w>84</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=0..1
+teaches to &gt;</panel_attributes>
+    <additional_attributes>120.0;20.0;20.0;10.0;10.0;170.0;120.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>870</y>
+      <w>60</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>10.0;70.0;50.0;70.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>222</x>
+      <y>516</y>
+      <w>888</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>1450.0;10.0;1270.0;190.0;10.0;210.0;10.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>558</x>
+      <y>282</y>
+      <w>114</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>390</y>
+      <w>468</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>760.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>36</x>
+      <y>204</y>
+      <w>66</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>70.0;80.0;70.0;10.0;10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>870</y>
+      <w>156</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>240.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>0</x>
+      <y>870</y>
+      <w>48</w>
+      <h>348</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>60.0;550.0;10.0;550.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6</x>
+      <y>882</y>
+      <w>246</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>50.0;470.0;20.0;470.0;20.0;200.0;390.0;200.0;390.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>12</x>
+      <y>492</y>
+      <w>114</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>12</x>
+      <y>492</y>
+      <w>114</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>12</x>
+      <y>492</y>
+      <w>114</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>12</x>
+      <y>492</y>
+      <w>114</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>12</x>
+      <y>492</y>
+      <w>114</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>12</x>
+      <y>492</y>
+      <w>114</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>654</y>
+      <w>180</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>280.0;70.0;280.0;10.0;10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>408</x>
+      <y>654</y>
+      <w>288</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>460.0;60.0;460.0;10.0;10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>648</y>
+      <w>546</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>890.0;80.0;890.0;10.0;10.0;20.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>642</y>
+      <w>702</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>1150.0;50.0;1150.0;10.0;10.0;30.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>444</x>
+      <y>642</y>
+      <w>834</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>1370.0;70.0;1370.0;10.0;10.0;30.0;10.0;70.0</additional_attributes>
+  </element>
+</diagram>
