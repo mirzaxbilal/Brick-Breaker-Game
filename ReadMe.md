@@ -129,23 +129,7 @@ The game saves your progress automatically when you pause and exit. To resume, s
 
 ---
 
-## Project Structure
 
-```
-BrickBreaker/
-    src/
-        Main.java              Entry point
-        GamePanel.java         Core game loop and rendering
-        Paddle.java            Paddle logic
-        Ball.java              Ball physics and collision
-        Brick.java             Brick types and durability
-        PowerUp.java           Power-up behaviour and effects
-        Level.java             Level generation and layout
-        GameState.java         Save and load logic
-    assets/
-        sounds/                Audio files
-        images/                Sprite and background assets
-    README.md
 ```
 
 ---
