@@ -1,74 +1,155 @@
-Group Members: Group 3.
+# Brick Breaker
 
-ID:	    Name:	                Section:
+A two-level brick-breaking game built in Java, featuring power-ups, heart-shaped brick layouts, and a full save/load system.
 
-21772	ABDUL REHMAN ABBASI	    50382
-21604	AIZA KHAN	            50382
-22771	SYED DANIAL ALI	NAQVI       50382
-22811	MIRZA BILAL BAIG	    50383
-22850	USMAN GHANI BAWANI	    50383
+---
 
+## Table of Contents
 
+- [Overview](#overview)
+- [Features](#features)
+- [Gameplay](#gameplay)
+- [Power-Ups](#power-ups)
+- [Levels](#levels)
+- [Controls](#controls)
+- [Screens and Flow](#screens-and-flow)
+- [Getting Started](#getting-started)
 
-GAME CONTENTS:
-* A main menu is displayed when the game starts.
-* A new Level 1 is generated when "New" is pressed on the main menu.
-* The game is laoded from the same level where it was paused, when "Load" is pressed   on the main menu.
-* The game Exits, when "Quit" is pressed on the main menu.
-* Game has 2 levels.
-* User can pause the game by pressing "Escape" key.
-* Level 1 is generated each time "New" is pressed.
-* Random Level Bricks are generated in a structurized pattern.
-* Bricks are destroyed through collision according to its Brick level.
-* A random power up is generated after an interval upon breaking the brick.
-* Powerups such as fireball and bullet power up lasts only for a while and then paddle returns to normal.
-* The paddle needs to catch the power up, to gain a super power.
-* When all the Bricks on level 1 are destroyed, level 1 is completed.
-* When level 1 is completed Level 2 is loaded, with a Dailogue box, congratulating the   user.
-* On level 2, Random level bricks are loaded in a heart shape.
-* When Level 2 is completed, user has won. Winner screen is displayed.
-* If lifes end, Game over. User can restart the game by pressing "Enter key".
+---
 
+## Overview
 
+Brick Breaker is a classic arcade-style game where you control a paddle to bounce a ball and destroy bricks. Clear all the bricks to advance through two unique levels, collect power-ups to gain temporary abilities, and try not to run out of lives!
 
+---
 
+## Features
 
-INDIVIAL TASKS:
+- Main menu with New Game, Load Game, and Quit options
+- Two hand-crafted levels with distinct brick layouts
+- Randomly generated bricks in structured and heart-shaped patterns
+- Multi-hit bricks with varying durability (brick levels)
+- Power-up system with timed effects
+- Pause and resume functionality
+- Save and load game state
+- Congratulatory dialogue on level completion
+- Winner screen on full game completion
+- Game Over screen with instant restart
 
-Mirza Bilal Baig (ERP = 22811):
+---
 
-- Completed Task 3. 
-- Integrated power up code to the main(Gameplay) code.
-- Implemented paddle and its functions in Gameplay code.
-- Implemented ball class in Gameplay.
-- Made Split ball power up class.
-- Made Ball class.
+## Gameplay
 
-Aiza Khan (ERP = 21604)
+You control a paddle at the bottom of the screen. A ball bounces around and destroys bricks on contact. Each brick has a durability level and requires a set number of hits to destroy. After breaking bricks, power-ups may randomly drop at intervals. Move your paddle to catch them and gain special abilities.
 
-- Completed Task 1.
+You have a limited number of lives. Every time the ball falls below your paddle, you lose one life. If all lives are lost, it is game over. When all bricks in a level are cleared, you advance to the next level.
 
-Usman Ghani Bawany (ERP = 22850):
+---
 
-- Completed Task 4.
-- Created Menu Class.
+## Power-Ups
 
-Syed Daniyal Ali Naqvi (ERP = 22771):
+Power-ups drop randomly after you break a certain number of bricks. They fall toward the bottom of the screen and must be caught with your paddle to activate. Some are temporary and expire after a short duration, returning the paddle to its normal state.
 
-- Completed Task 5. 
-- Helped in displaying scores and lifes on screen.
-- Helped in writing game restart code when "Enter key pressed".
+| Power-Up | Effect | Duration |
+|----------|--------|----------|
+| Fireball | The ball burns through bricks with increased power | Timed |
+| Bullet | Shoot projectiles from the paddle to destroy bricks directly | Timed |
+| (others) | Additional power-ups may appear during gameplay | Varies |
 
-Abdul Rehman Abbasi (ERP 21772):
+---
 
-- Completed task 2. 
-- Assembled the whole code.
-- Created BackGround for Menu, Levels, and Winner.
-- Integrated the Bricks Code to the GamePlay class.
-- Created collision functions.
-- Created winner function and Restart on key press in gamepaly class
-- Added code for keyListeners and mouse listener.
-- Created GamePlay Class.
-.
+## Levels
 
+### Level 1 - Structured Layout
 
+Bricks are generated in a structured, organized grid pattern. The layout is randomized each time you start a new game, so no two playthroughs are exactly the same. Clear all bricks to complete the level.
+
+### Level 2 - Heart Shape
+
+Bricks are arranged in a heart shape. This level loads automatically after completing Level 1. A congratulatory dialogue box is shown before the level begins. Clear the heart to win the game.
+
+---
+
+## Controls
+
+| Key / Action | Function |
+|---|---|
+| Mouse / Arrow Keys | Move the paddle |
+| Escape | Pause or resume the game |
+| Enter | Restart from Game Over screen |
+
+---
+
+## Screens and Flow
+
+```
+Main Menu
+   |
+   |-- New Game --------> Level 1 (randomly generated layout)
+   |                          |
+   |                          |-- All bricks cleared --> Congratulations Dialogue --> Level 2 (heart layout)
+   |                          |                                                            |
+   |                          |                                                            |-- All bricks cleared --> Winner Screen
+   |                          |
+   |                          |-- Lives run out --> Game Over (press Enter to restart)
+   |
+   |-- Load Game -------> Resume from last saved point
+   |
+   |-- Quit ------------> Exit the game
+```
+
+---
+
+## Getting Started
+
+### Requirements
+
+- Java Development Kit (JDK) 8 or higher
+- A Java-compatible IDE (IntelliJ IDEA, Eclipse, NetBeans) or the command line
+
+### Running the Game
+
+**From the command line:**
+
+```bash
+# Compile
+javac -d out src/**/*.java
+
+# Run
+java -cp out Main
+```
+
+**From an IDE:**
+
+Open the project folder in your IDE, locate the `Main.java` entry point, and run it directly.
+
+### Saving and Loading
+
+The game saves your progress automatically when you pause and exit. To resume, select "Load" from the main menu and you will be placed back at the same level and state where you left off.
+
+---
+
+## Project Structure
+
+```
+BrickBreaker/
+    src/
+        Main.java              Entry point
+        GamePanel.java         Core game loop and rendering
+        Paddle.java            Paddle logic
+        Ball.java              Ball physics and collision
+        Brick.java             Brick types and durability
+        PowerUp.java           Power-up behaviour and effects
+        Level.java             Level generation and layout
+        GameState.java         Save and load logic
+    assets/
+        sounds/                Audio files
+        images/                Sprite and background assets
+    README.md
+```
+
+---
+
+## License
+
+This project was created as a personal Java project. Feel free to use it for learning purposes.
